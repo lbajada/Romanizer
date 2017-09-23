@@ -134,11 +134,17 @@ public final class Romanizer {
      * <p>
      * Adapted from: https://stackoverflow.com/a/267405/5026036
      *
+     * Currently allows an infinite number of M roman numerals since
+     * x10 multiplier roman numerals like the ones below are currently
+     * not supported.
+     * _ _ _
+     * M L X  etc. etc.
+     *
      * @param roman The compact roman numeral to validate
      * @return Returns true if it is a valid roman numeral
      */
     public static boolean isValidCompactRoman(String roman) {
-        return roman.matches("^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+        return roman.matches("^M*(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
     }
 
     /**
